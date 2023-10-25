@@ -10,7 +10,7 @@ func main() {
 
 	slice := generateSlice(30)
 	fmt.Println("\n--- Unsorted --- \n\n", slice)
-	insertionSort(slice)
+	selectionSort(slice)
 	fmt.Println("\n--- Sorted ---\n\n", slice, "\n")
 }
 
@@ -25,15 +25,15 @@ func generateSlice(size int) []int {
 	return slice
 }
 
-func insertionSort(items []int) {
+func selectionSort(items []int) {
 	var n = len(items)
-	for i := 1; i < n; i++ {
-		j := i
-		for j > 0 {
-			if items[j-1] > items[j] {
-				items[j-1], items[j] = items[j], items[j-1]
+	for i := 0; i < n; i++ {
+		var minIdx = i
+		for j := i; j < n; j++ {
+			if items[j] < items[minIdx] {
+				minIdx = j
 			}
-			j = j - 1
 		}
+		items[i], items[minIdx] = items[minIdx], items[i]
 	}
 }
