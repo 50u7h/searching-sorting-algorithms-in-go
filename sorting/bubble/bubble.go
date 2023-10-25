@@ -3,7 +3,6 @@ package main
 import (
 	"fmt"
 	"sortingAlgorithms/helper"
-	_ "sortingAlgorithms/helper"
 )
 
 func main() {

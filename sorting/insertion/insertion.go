@@ -2,27 +2,15 @@ package main
 
 import (
 	"fmt"
-	"math/rand"
-	"time"
+	"sortingAlgorithms/helper"
 )
 
 func main() {
 
-	slice := generateSlice(30)
+	slice := helper.GenerateSlice(30)
 	fmt.Println("\n--- Unsorted --- \n\n", slice)
 	insertionSort(slice)
 	fmt.Println("\n--- Sorted ---\n\n", slice, "\n")
-}
-
-// Generates a slice of size, size filled with random numbers
-func generateSlice(size int) []int {
-
-	slice := make([]int, size)
-	rng := rand.New(rand.NewSource(time.Now().UTC().UnixNano()))
-	for i := 0; i < size; i++ {
-		slice[i] = rng.Intn(999)
-	}
-	return slice
 }
 
 func insertionSort(items []int) {
